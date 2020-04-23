@@ -15,21 +15,13 @@ imdb = pd.read_csv("https://gist.githubusercontent.com/guilhermesilveira/24e271e
 imdb.head()
 
 imdb['color'].unique()
-
 imdb['color'].value_counts()
-
 imdb['color'].value_counts(normalize=True)
-
 imdb['director_name'].value_counts()
-
 imdb['director_name']
-
 imdb['director_name'].value_counts().tail(40)
-
 imdb['num_critic_for_reviews']
-
 imdb['num_critic_for_reviews'].describe()
-
 imdb['num_critic_for_reviews'].plot(
     kind='hist'
 )
@@ -41,7 +33,6 @@ import seaborn as sns
 sns.distplot(imdb['gross'])
 
 imdb.sort_values('gross', ascending=False).head()
-
 imdb.sort_values('gross', ascending=False).sample(10)
 
 color_or_bw = imdb.query("color in ['Color', ' Black and White']")
@@ -49,7 +40,6 @@ len(color_or_bw)
 
 color_or_bw['color_0_ou_1'] = (color_or_bw['color']=='Color')*1
 color_or_bw.head()
-
 color_or_bw['color_0_ou_1'].value_counts()
 
 sns.scatterplot(
@@ -59,7 +49,6 @@ sns.scatterplot(
     )
 
 color_or_bw.groupby('color').mean()['imdb_score']
-
 color_or_bw.groupby('color').median()['imdb_score']
 
 budget_gross = imdb[['budget', 'gross']].dropna().query('budget>0 | gross>0')
@@ -71,9 +60,7 @@ sns.scatterplot(
     )
 
 imdb.sort_values('budget', ascending=False).head()
-
 imdb['country'].unique()
-
 imdb = imdb.drop_duplicates()
 
 imdb_usa = imdb.query("country == 'USA'")
